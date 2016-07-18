@@ -1,61 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset=utf-8>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name=viewport content="width=device-width,initial-scale=1">
-	<meta name=keywords content="iitk,shooting,club,clubs"> 
-	<meta name=author content="Abhinav Tripathi"> 
-	<title> Shooting Club  &middot; IIT Kanpur </title>
-	<!--bootstrap-->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-	<!--/bootstrap-->
+  
+  <title>Shooting Club  &middot; IIT Kanpur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name=keywords content="iitk,shooting,club,clubs,iit,kanpur"> 
+  <meta name=author content="Abhinav Tripathi">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/4.0.7/sweetalert2.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/sweetalert2/4.0.7/sweetalert2.min.js"></script>
+  <link rel="icon" href="images/iitklogo.png">
+
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+  .jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+  }
+  .logo {
+      color: #f4511e;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-inner > .item > img {
+    margin: 0 auto;
+}
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #f4511e;
+  }
+  .carousel-indicators li {
+      border-color: #f4511e;
+  }
+  .carousel-indicators li.active {
+      background-color: #f4511e;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #f4511e; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #f4511e !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #f4511e;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f4511e;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  </style>
 </head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-    		<div class="navbar-header">
-    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-      			</button>
-      			<a class="navbar-brand" href="#">Shooting Club <small>IITK</small></a>
-    		</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#initiatives">INITIATIVES</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#events">EVENTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="https://www.facebook.com/ShootingHobbyClub/" class="fa fa-facebook-official"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    		<!-- Collect the nav links, forms, and other content for toggling -->
-    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      			<ul class="nav navbar-nav navbar-right">
-        			<li><a href="#">Home</a></li>
-        			<li><a href="#">Ranking</a></li>
-        			<li><a href="#">Gallery</a></li>
-        			<li><a href="#">Events</a></li>
-        			<li><a href="#">Contact Us</a></li>
-        			<!--<li class="dropdown">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          				<ul class="dropdown-menu">
-				            <li><a href="#">Action</a></li>
-				            <li><a href="#">Another action</a></li>
-				            <li><a href="#">Something else here</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
-          				</ul>
-        			</li>-->
-      			</ul>
-    		</div><!-- /.navbar-collapse -->
-  		</div><!-- /.container-fluid -->
-	</nav>
+<div class="jumbotron text-center">
+  <h1>Shooting Club</h1>  
+  <img src="images/logo.svg">
+  <p>IIT Kanpur</p>
+</div>
 
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>SHOOTING CLUB</h2><br>
+      <h4>IIT Kanpur is one of the very few institutes (might even be the only one) in India to encourage and facilitate the game of shooting. </h4><br>
+      <p>Shooting Club is a body under <b><a href="https://www.facebook.com/sports.iitk/">Games and Sports Council, Students' Gymkhana, IIT Kanpur</a></b> which provides a platform to the students to pursue their interest in shooting sports, mainly 10m Air Rifle and 10m Air Pistol category. Started originally as a hobby group in March 2013, it was converted into a recognised club on March 10, 2015. The efforts of Prachi Mishra are highly appreciated in this regard. She is considered to have given birth to the culture of shooting sports in IIT Kanpur.</p>
+      <!--<br><button class="btn btn-default btn-lg">Get in Touch</button>-->
+    </div>
+    <div class="col-sm-4">
+      <!--<span class="glyphicon glyphicon-calendar logo"></span>-->
+      <img src="images/sh.png">
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="fa fa-bullseye logo slideanim"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Our Aim</h2><br>
+      <h4><strong>MISSION:</strong> Shooting Club aims at creating competitive state and national level players. Every year a number of students from IITK participate in district, state and national level competitions.</h4><br>
+      <p><strong>VISION:</strong> There are plenty of problems faced by the club. The most important one is the location of the shooting range. The only shooting range in Kanpur is about 5 km away from the campus. We are making every effort possible in order to establish a classy shooting range inside the campus.</p>
+    </div>
+  </div>
+</div>
 
+<!-- Container (Initiatives Section) -->
+<div id="initiatives" class="container-fluid text-center">
+  <h2>INITIATIVES</h2>
+  <h4>by Shooting Club</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="fa fa-line-chart logo-small"></span>
+      <h4>RANKINGS</h4>
+      <p>Yearly rankings of the players</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-users logo-small"></span>
+      <h4>PARTICIPATION</h4>
+      <p>Ensuring maximum participation in various competitions</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-rupee logo-small"></span>
+      <h4>BUDJET</h4>
+      <p>Proper allocation of funds for the club</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="fa fa-smile-o logo-small"></span>
+      <h4>WORKSHOPS</h4>
+      <p>On demand workshops for students and staff</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-whatsapp logo-small"></span>
+      <h4>COMMUNICATION</h4>
+      <p>Maintaining proper communication among the players</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-university logo-small"></span>
+      <h4 style="color:#303030;">CAMPUS RANGE</h4>
+      <p>Establishing a range inside the campus</p>
+    </div>
+  </div>
+</div>
 
+<!-- Container (Gallery Section) -->
+<div id="gallery" class="container-fluid text-center bg-grey">
+  <h2>Gallery</h2><br>
+  <h4>Get a taste of the club</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/amar.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Amar Nigam</strong></p>
+        <p>Yes, we have an awesome coach</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/media.png" alt="New York" width="400" height="300">
+        <p><strong>Media Coverage</strong></p>
+        <p>We are that good</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/range_comp.jpeg" alt="San Francisco" width="400" height="300">
+        <p><strong>Professionals</strong></p>
+        <p>Yes, we participate in prestigious competitions</p>
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>A glimpse of what we do</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+	  <li data-target="#myCarousel" data-slide-to="3"></li>
+	  <li data-target="#myCarousel" data-slide-to="4"></li>
+	  <li data-target="#myCarousel" data-slide-to="5"></li>
+	  <li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+		<img src="images/1.jpg">
+        <h4>37th UP State Championship</h4>
+      </div>
+      <div class="item">
+		<img src="images/2.jpg">
+        <h4>38th UP State Championship</h4>
+      </div>
+      <div class="item">
+		<img src="images/3.jpg">
+        <h4>Students representing IITK during competitions</h4>
+      </div>
+	  <div class="item">
+		<img src="images/4.jpg">
+        <h4>10m Air Pistol</h4>
+      </div>
+	  <div class="item">
+		<img src="images/5.jpg">
+        <h4>A Glimpse from the Workshop this Summer</h4>
+      </div>
+	  <div class="item">
+		<img src="images/6.jpg">
+        <h4>A Glimpse from the Workshop this Summer</h4>
+      </div>
+	  <div class="item">
+		<img src="images/7.jpg">
+        <h4>A Glimpse from the Workshop this Summer</h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (events Section) -->
+<div id="events" class="container-fluid">
+  <div class="text-center">
+    <h2>Events</h2>
+    <h4>Be a part of Shooting Club</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Workshops</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>May'16</strong> Summer Workshop</p>
+          <p><strong>Aug'16</strong> First Semester - Workshop I</p>
+          <p><strong>Sep'16</strong> First Semester - Workshop II</p>
+          <p><strong>Jan'17</strong> Second Semester - Workshop I</p>
+          <p><strong>Mar'17</strong> Second Semester - Workshop II</p>
+        </div>
+        <div class="panel-footer">
+          <h3>Rs 250</h3>
+          <h4>Expected Charges (actual charges may vary)</h4>
+          <button class="btn btn-lg" onclick="sweetAlert('Register for Workshops', 'Contact coordinators for registration process', 'warning');">Register Now</button>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Competitions</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>3rd</strong> District Shooting Championship</p>
+          <p><strong>3rd</strong> Pre-UP Shooting Championship</p>
+          <p><strong>39th</strong> UP Shooting Championship</p>
+          <p><strong>26th</strong> Pre-national Shooting Championship</p>
+          <p><strong>1st</strong> IITK Shooting Championship</p>
+        </div>
+        <div class="panel-footer">
+          <h3>Rs 3000</h3>
+          <h4>per month (actual charges may vary)</h4>
+          <button class="btn btn-lg" onclick="sweetAlert('Register for Regular Practice', 'Contact coordinators for registration process', 'warning');">Start Practising</button>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Standings</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>6th</strong> Suchismita</p>
+          <p><strong>5th</strong> Soumya</p>
+          <p><strong>4th</strong> Abhinav Tripathi</p>
+          <p><strong>3rd</strong> Utkarsh Maurya</p>
+          <p><strong>2nd</strong> Manpreet Singh</p>
+        </div>
+        <div class="panel-footer">
+          <h3>1st &middot; Prachi Mishra</h3>
+          <h4>based on competitions held in 2015</h4>
+          <button class="btn btn-lg" 
+            onclick="sweetAlert({
+              title: 'Current Standings <small>2015</small>',
+              html: '<table style=width:100%;><tr><td><strong>Rank</strong></td><td><strong>Name</strong></td><td><strong>Academic Programme</strong></td><td>&nbsp;&nbsp;<strong>Batch</strong></td></tr><tr><td>1</td><td>Prachi Mishra</td><td>B.Tech.</td><td>Y12</td></tr><tr><td>2</td><td>Manpreet Singh</td><td>M.B.A.</td><td>Y15</td></tr><tr><td>3</td><td>Utkarsh Maurya</td><td>M.B.A.</td><td>Y15</td></tr><tr><td>4</td><td>Abhinav Tripathi</td><td>B.Tech.</td><td>Y15</td></tr><tr><td>5</td><td>Soumya</td><td>M.B.A.</td><td>Y15</td></tr><tr><td>6</td><td>Suchismita</td><td>M.Tech.</td><td>Y14</td></tr><tr><td>7</td><td>Himanshu Negi</td><td>M.B.A.</td><td>Y15</td></tr><tr><td>8</td><td>Anisha Narendran</td><td>M.Tech.</td><td>Y14</td></tr><tr><td>9</td><td>Rahul</td><td>B.Tech.</td><td>Y14</td></tr><tr><td>10</td><td>Yashodhan Sonwane</td><td>B.Tech.</td><td>Y14</td></tr></table>'});">View Table</button>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+        <div class="row text-center slideanim">
+          <div class="col-sm-4">
+            <p class="text-center"><strong>Robinson Guria</strong></p><br>
+            <a href="#demo" data-toggle="collapse">
+              <img src="images/rg.png" class="img-circle person" alt="Robinson Guria" width="255" height="255">
+            </a>
+            <div id="demo" class="collapse">
+              <p><strong> General Secretary, Games and Sports Council</strong></p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Hall 1, IITK</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +91 8953440631</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> sportsecy@iitk.ac.in</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <p class="text-center"><strong>Abhinav Tripathi</strong></p><br>
+            <a href="#demo2" data-toggle="collapse">
+              <img src="images/at.jpg" class="img-circle person" alt="Abhinav Tripathi" width="255" height="255">
+            </a>
+            <div id="demo2" class="collapse">
+              <p><strong>Coordinator, Shooting Club</strong></p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Hall 5, IITK</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +91 7376890995</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> abhinavt@iitk.ac.in</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <p class="text-center"><strong>Rahul</strong></p><br>
+            <a href="#demo3" data-toggle="collapse">
+              <img src="images/rr.jpg" class="img-circle person" alt="Rahul" width="255" height="255">
+            </a>
+            <div id="demo3" class="collapse">
+              <p><strong>Coordinator, Shoooting Club</strong></p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Hall 10, IITK</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +91 7755058058</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> rahulz@iitk.ac.in</p>
+            </div>
+          </div>
+        </div>
+      
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" id="googleMap" style="height:400px;width:100%;"></div>
+
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(26.485318, 80.274804);
+
+function initialize() {
+var mapProp = {
+  center:myCenter,
+  zoom:13,
+  scrollwheel:false,
+  draggable:true,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position:myCenter,
+  });
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Shooting Range \(26.485318, 80.274804\)"
+  });
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Webpage By<a href="http://www.facebook.com/abhinav.tripathi.95" title="Contact Abhinav">  Abhinav Tripathi</a></p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
 </body>
 </html>
